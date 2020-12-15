@@ -1,5 +1,5 @@
 class Constant(float):
-    def __new__(cls, value, units, description, doc):
+    def __new__(cls, value, units, doc):
         self = float.__new__(cls, value)
         self.units = units
         self.doc = doc
