@@ -6,6 +6,13 @@ class Constant(float):
         return self
 
 
+class FuelModel(float):
+    def __init__(self, density, specific_heat, thermal_conductivity, doc):
+        self.rho = Constant(density, 'kg/m^3', doc)
+        self.specific_heat = Constant(specific_heat, '(kJ/kg)K', doc)
+        self.thermal_conductivity = Constant(thermal_conductivity, '(W/m)K', doc)
+
+
 # Constants with units
 T_inf = Constant(300, 'K', 'Section 8 Page 152')  # Ambient Temperature
 E_A = Constant(83.68, 'kJ/mol', 'Section 8 Page 152')  # Activation Energy
@@ -28,3 +35,4 @@ w_y = Constant(300, 'Dimensionless', 'Section 8 Page 153')
 
 # Fuel models go below
 # Each fuel model will have a density, specific heat, and thermal conductivity constant
+c064_grass = FuelModel(512, 0.1, 1.184, 'Mell 2006')
